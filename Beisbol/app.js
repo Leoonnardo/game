@@ -22,11 +22,11 @@ app.get('/',(req, res )=> {
     res.send('Api microservicios conectada');
 })
 
-app.get('/api/juegos',(req,res)=>{
+app.get('/api/lol',(req,res)=>{
     res.send(juegos)
 });
 
-app.get('/api/juego/:id',(req ,res) =>{
+app.get('/api/lol/:id',(req ,res) =>{
     const game = juegos.find(c => c.id === parseInt(req.params.id));
     if(!game) return res.status(404).send('Juego no encontrado');
     else res.json(game);
