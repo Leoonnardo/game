@@ -4,31 +4,25 @@ const app = express();
 app.use(express.json());
 
 const juegos = [
-    {id:1, nombre: 'ligoleyen', empresa: 'el tio rito', año: '2009',},
-    {id:2, nombre: 'valorant', empresa: 'el tio rito', año: '2020',},
-    {id:3, nombre: 'fifas', empresa: 'i ei estor chekenen', año: '1993',},
-    {id:4, nombre: 'rokeli', empresa: 'Psyonix', año: '2015',},
-    {id:5, nombre: 'plantas bersus sombis guarfar', empresa: 'PopCapGames', año: '2014',},
-    {id:6, nombre: 'hevimachinga', empresa: 'eseneka', año: '1996',},
-    {id:7, nombre: 'dekinofaiter', empresa: 'eseneka', año: '1993',},
-    
-
-
-
-
+    {id:1, nombre: 'Carlos Acevedo', posicion: 'Defensa', edad: '26',},
+    {id:2, nombre: 'Hector Acosta', posicion: 'Defensa', edad: '30',},
+    {id:3, nombre: 'Saul Acosta', posicion: 'Delantero', edad: '31',},
+    {id:4, nombre: 'Francisco Javier', posicion: 'Volante', edad: '34',},
+    {id:5, nombre: 'Milton Micheli', posicion: 'Arquero', edad: '38',},
+    {id:6, nombre: 'Erick Germain', posicion: 'Defensa', edad: '25',},
 ];
 
 app.get('/',(req, res )=> {
     res.send('Api microservicios conectada');
 })
 
-app.get('/api/juegos',(req,res)=>{
+app.get('/api/jugadores',(req,res)=>{
     res.send(juegos)
 });
 
-app.get('/api/juego/:id',(req ,res) =>{
+app.get('/api/jugadores/:id',(req ,res) =>{
     const game = juegos.find(c => c.id === parseInt(req.params.id));
-    if(!game) return res.status(404).send('Juego no encontrado');
+    if(!game) return res.status(404).send('Jugador no encontrado');
     else res.json(game);
 });
 
